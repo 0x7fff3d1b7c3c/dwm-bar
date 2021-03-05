@@ -44,44 +44,11 @@ export SEP2="]"
 . "$DIR/bar-functions/dwm_loadavg.sh"
 . "$DIR/bar-functions/dwm_currency.sh"
 
-parallelize() {
-    while true
-    do
-        printf "Running parallel processes\n"
-        dwm_weather &
-        dwm_networkmanager &
-        sleep 5
-    done
-}
-parallelize &
-
 # Update dwm status bar every second
 while true
 do
-    # Append results of each func one by one to a string
-    dispstr=""
-    dispstr="$dispstr$(dwm_connman)"
-    dispstr="$dispstr$(dwm_countdown)"
-    dispstr="$dispstr$(dwm_alarm)"
-    dispstr="$dispstr$(dwm_transmission)"
-    dispstr="$dispstr$(dwm_cmus)"
-    dispstr="$dispstr$(dwm_mpc)"
-    dispstr="$dispstr$(dwm_spotify)"
-    dispstr="$dispstr$(dwm_resources)"
-    dispstr="$dispstr$(dwm_battery)"
-    dispstr="$dispstr$(dwm_mail)"
-    dispstr="$dispstr$(dwm_backlight)"
-    dispstr="$dispstr$(dwm_alsa)"
-    dispstr="$dispstr$(dwm_pulse)"
-    dispstr="$dispstr${__DWM_BAR_WEATHER__}"
-    dispstr="$dispstr$(dwm_vpn)"
-    dispstr="$dispstr${__DWM_BAR_NETWORKMANAGER__}"
-    dispstr="$dispstr$(dwm_keyboard)"
-    dispstr="$dispstr$(dwm_ccurse)"
-    dispstr="$dispstr$(dwm_date)"
-    dispstr="$dispstr$(dwm_loadavg)"
-    dispstr="$dispstr$(dwm_currency)"
 
-    xsetroot -name "$dispstr"
+    xsetroot -name "$(dwm_countdown)$(dwm_pulse)$(dwm_battery)$(dwm_resources)$(dwm_date)"
     sleep 1
+
 done

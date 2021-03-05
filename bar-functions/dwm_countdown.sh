@@ -10,10 +10,10 @@ dwm_countdown () {
     for f in /tmp/countdown.*; do
         if [ -e "$f" ]; then
             printf "%s" "$SEP1"
-            if [ "$IDENTIFIER" = "unicode" ]; then
+            if [ "$IDENTIFIER" = "" ]; then
                 printf "⏳ %s" "$(tail -1 /tmp/countdown.*)"
             else
-                printf "CDN %s" "$(tail -1 /tmp/countdown.*)"
+                printf " %s" "$(tail -1 /tmp/countdown.*)"
             fi
             printf "%s\n" "$SEP2"
 

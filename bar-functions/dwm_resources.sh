@@ -22,10 +22,10 @@ dwm_resources () {
 	STOPER=$(echo $df_output | awk '{print $5}')
 
 	printf "%s" "$SEP1"
-	if [ "$IDENTIFIER" = "unicode" ]; then
+	if [ "$IDENTIFIER" = "" ]; then
 		printf "💻 MEM %s/%s CPU %s STO %s/%s: %s" "$MEMUSED" "$MEMTOT" "$CPU" "$STOUSED" "$STOTOT" "$STOPER"
 	else
-		printf "STA | MEM %s/%s CPU %s STO %s/%s: %s" "$MEMUSED" "$MEMTOT" "$CPU" "$STOUSED" "$STOTOT" "$STOPER"
+		printf " %s/%s  %s  %s/%s: %s" "$MEMUSED" "$MEMTOT" "$CPU" "$STOUSED" "$STOTOT" "$STOPER"
 	fi
 	printf "%s\n" "$SEP2"
 }
